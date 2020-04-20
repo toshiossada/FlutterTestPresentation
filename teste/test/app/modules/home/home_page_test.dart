@@ -13,20 +13,23 @@ main() {
     initModules([HomeModule()]);
     _homeController = Modular.get<HomeController>();
   });
-  testWidgets('Aciona botão de incrementar uma vez e decrementar duas vezes',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(buildTestableWidget(HomePage(title: 'Home')));
 
-    expect(find.text('0'), findsOneWidget);
-    final decrement = find.byTooltip('Decrement');
-    final increment = find.byTooltip('Increment');
-    expect(decrement, findsOneWidget);
-    expect(increment, findsOneWidget);
+  group('Home Page Test', () {
+    testWidgets('Aciona botão de incrementar uma vez e decrementar duas vezes',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage(title: 'Home')));
 
-    await tester.tap(increment);
-    await tester.tap(decrement);
-    await tester.tap(decrement);
-    await tester.pump();
-    expect(find.text('-1'), findsOneWidget);
+      expect(find.text('0'), findsOneWidget);
+      final decrement = find.byTooltip('Decrement');
+      final increment = find.byTooltip('Increment');
+      expect(decrement, findsOneWidget);
+      expect(increment, findsOneWidget);
+
+      await tester.tap(increment);
+      await tester.tap(decrement);
+      await tester.tap(decrement);
+      await tester.pump();
+      expect(find.text('-1'), findsOneWidget);
+    });
   });
 }

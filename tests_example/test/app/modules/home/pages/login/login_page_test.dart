@@ -16,11 +16,12 @@ main() {
     ]);
     initModule(HomeModule());
   });
-
-  testWidgets('LoginPage has Welcome', (WidgetTester tester) async {
-    await tester.pumpWidget(buildTestableWidget(LoginPage()));
-    await tester.pump();
-    final titleFinder = find.text('Bem Vindo!');
-    expect(titleFinder, findsNothing);
+  group('LoginPage tests', () {
+    testWidgets('LoginPage has Welcome', (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(LoginPage()));
+      await tester.pump();
+      final titleFinder = find.text('Bem Vindo!');
+      expect(titleFinder, findsNothing);
+    });
   });
 }

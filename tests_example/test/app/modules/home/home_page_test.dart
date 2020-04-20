@@ -25,10 +25,13 @@ main() {
         authentication:
             AuthenticationModel(login: 'Toshi Ossada', password: '123456'));
   });
-  testWidgets('PayslipPage has title', (WidgetTester tester) async {
-    await tester.pumpWidget(buildTestableWidget(HomePage()));
-    await tester.pump();
-    final titleFinder = find.text('${loginController.user.name},');
-    expect(titleFinder, findsOneWidget);
+
+  group('PayslipPage Tests', () {
+    testWidgets('PayslipPage has title', (WidgetTester tester) async {
+      await tester.pumpWidget(buildTestableWidget(HomePage()));
+      await tester.pump();
+      final titleFinder = find.text('${loginController.user.name},');
+      expect(titleFinder, findsOneWidget);
+    });
   });
 }
