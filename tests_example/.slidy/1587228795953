@@ -1,0 +1,2 @@
+lib/app/modules/home/components/loading/loading_widget.dart
+test/app/modules/home/components/loading/loading_widget_test.dart

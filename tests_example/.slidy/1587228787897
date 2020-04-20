@@ -1,0 +1,2 @@
+lib/app/modules/home/components/master/master_widget.dart
+test/app/modules/home/components/master/master_widget_test.dart
