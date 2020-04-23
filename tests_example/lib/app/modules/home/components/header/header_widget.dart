@@ -12,31 +12,28 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: '',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: titleStyle ??
+              TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[800],
+              ),
         ),
-        children: <TextSpan>[
-          TextSpan(
-            text: title,
-            style: titleStyle ??
-                TextStyle(
-                  fontSize: 32,
-                  color: Colors.blue[800],
-                ),
-          ),
-          TextSpan(text: '\n'),
-          TextSpan(
-            text: subTitle,
-            style: subtitleStyle ??
-                TextStyle(
-                  color: Colors.blue[600],
-                ),
-          ),
-        ],
-      ),
+        Text(
+          subTitle,
+          style: subtitleStyle ??
+              TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[600],
+              ),
+        ),
+      ],
     );
   }
 }

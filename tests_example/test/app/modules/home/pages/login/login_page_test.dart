@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_modular/flutter_modular_test.dart';
@@ -16,11 +17,12 @@ main() {
     ]);
     initModule(HomeModule());
   });
+
   group('LoginPage tests', () {
     testWidgets('LoginPage has Welcome', (WidgetTester tester) async {
       await tester.pumpWidget(buildTestableWidget(LoginPage()));
       await tester.pump();
-      final titleFinder = find.text('Bem Vindo!');
+      final titleFinder = find.widgetWithText(Text, 'Bem Vindo!');
       expect(titleFinder, findsNothing);
     });
   });

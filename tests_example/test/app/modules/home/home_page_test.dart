@@ -14,12 +14,12 @@ import 'package:tests_example/app/shared/repositories/mocks/user_local_storage_r
 main() {
   LoginController loginController;
   setUp(() async {
-    initModule(HomeModule());
     initModule(AppModule(), changeBinds: [
       Bind<IUserLocalStorageRepository>(
           (i) => UserLocalStorageRepositoryMock()),
     ]);
 
+    initModule(HomeModule());
     loginController = Modular.get();
     await loginController.authentication(
         authentication:
