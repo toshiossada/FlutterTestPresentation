@@ -23,6 +23,7 @@ main() {
       await tester.pumpWidget(buildTestableWidget(LoginPage()));
       await tester.pump();
       final titleFinder = find.widgetWithText(Text, 'Bem Vindo!');
+      
       expect(titleFinder, findsNothing);
     });
   });
