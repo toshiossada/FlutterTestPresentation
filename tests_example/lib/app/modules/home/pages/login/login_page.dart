@@ -19,6 +19,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final Key keyLogin = Key('txtLogin');
+  final Key keyPassword = Key('txtpassword');
 
   @override
   initState() {
@@ -46,6 +48,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           return Column(
             children: <Widget>[
               RoundedTextFieldWidget(
+                key: keyLogin,
                 showBorder: true,
                 labelText: 'Email',
                 fontColor: Colors.black,
@@ -60,6 +63,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 },
               ),
               PasswordFieldWidget(
+                key: keyPassword,
                 showBorder: true,
                 onChanged: controller.setPassword,
                 fontColor: Colors.black,

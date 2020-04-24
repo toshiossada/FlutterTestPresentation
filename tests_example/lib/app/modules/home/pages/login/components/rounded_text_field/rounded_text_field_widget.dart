@@ -16,6 +16,7 @@ class RoundedTextFieldWidget extends StatelessWidget {
   final Widget suffixIcon;
   final Color labelStyleColor;
   final bool showBorder;
+  final Key key;
 
   RoundedTextFieldWidget({
     this.onSaved,
@@ -33,6 +34,7 @@ class RoundedTextFieldWidget extends StatelessWidget {
     @required this.fontColor,
     this.initialValue,
     this.showBorder,
+    @required this.key,
   });
 
   @override
@@ -43,6 +45,7 @@ class RoundedTextFieldWidget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: TextFormField(
         readOnly: readOnly,
+        key: key,
         controller: this.controller,
         obscureText: this.obscureText,
         keyboardType: TextInputType.text,

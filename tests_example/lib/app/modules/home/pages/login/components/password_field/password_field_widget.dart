@@ -14,6 +14,7 @@ class PasswordFieldWidget extends StatelessWidget {
   final Color backgroundColor;
   final Color labelStyleColor;
   final bool showBorder;
+  final Key key;
 
   PasswordFieldWidget(
       {this.onChanged,
@@ -22,12 +23,14 @@ class PasswordFieldWidget extends StatelessWidget {
       this.fontColor,
       this.backgroundColor,
       this.labelStyleColor,
-      this.showBorder});
+      this.showBorder,
+      this.key});
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Observer(
         builder: (_) => RoundedTextFieldWidget(
+          key: key,
           showBorder: showBorder,
           labelText: label,
           fontColor: fontColor,

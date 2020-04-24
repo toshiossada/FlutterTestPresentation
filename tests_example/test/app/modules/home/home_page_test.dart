@@ -9,7 +9,9 @@ import 'package:tests_example/app/modules/home/home_page.dart';
 import 'package:tests_example/app/modules/home/pages/login/login_controller.dart';
 import 'package:tests_example/app/shared/models/authentication_model.dart';
 import 'package:tests_example/app/shared/repositories/interfaces/user_local_storage_repository_interface.dart';
+import 'package:tests_example/app/shared/repositories/interfaces/user_respository_interface.dart';
 import 'package:tests_example/app/shared/repositories/mocks/user_local_storage_repository_mock.dart';
+import 'package:tests_example/app/shared/repositories/mocks/user_repository_mock.dart';
 
 main() {
   LoginController loginController;
@@ -17,6 +19,7 @@ main() {
     initModule(AppModule(), changeBinds: [
       Bind<IUserLocalStorageRepository>(
           (i) => UserLocalStorageRepositoryMock()),
+      Bind<IUserRepository>((i) => UserRepositoryMock()),
     ]);
 
     initModule(HomeModule());

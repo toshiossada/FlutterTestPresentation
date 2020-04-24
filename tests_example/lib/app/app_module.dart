@@ -14,6 +14,7 @@ import 'package:tests_example/app/shared/utils/settings.dart';
 
 import 'shared/repositories/interfaces/user_local_storage_repository_interface.dart';
 import 'shared/repositories/interfaces/user_respository_interface.dart';
+import 'shared/repositories/mocks/user_repository_mock.dart';
 import 'shared/services/interfaces/user_service_interface.dart';
 
 class AppModule extends MainModule {
@@ -22,7 +23,7 @@ class AppModule extends MainModule {
         Bind<IUserStorageService>(
             (i) => UserStorageService(i.get<IUserLocalStorageRepository>())),
         Bind<IUserLocalStorageRepository>((i) => UserLocalStorageRepository()),
-        Bind<IUserRepository>((i) => UserRepository(i.get<CustomDio>())),
+        Bind<IUserRepository>((i) => UserRepositoryMock()),
         Bind<IUserService>((i) => UserService(
               i.get<IUserRepository>(),
               i.get<IUserStorageService>(),

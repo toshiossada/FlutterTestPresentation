@@ -29,7 +29,10 @@ abstract class _LoginControllerBase with Store {
   @action
   authentication({AuthenticationModel authentication}) async {
     try {
-      user = await _userService.authenticate(model: authentication);
+      if (authentication.login.isEmpty || authentication.password.isEmpty)
+        user = UserModel();
+      else
+        user = await _userService.authenticate(model: authentication);
     } catch (e) {
       user = UserModel();
     }
